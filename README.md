@@ -71,7 +71,7 @@ ___
 * **Full Draft Simulation**: Simulate NFL draft round-by-round.
 * **Live Picks**: View and track draft picks live.
 * **User-Controlled Teams**: Select specific teams to control your draft picks.
-* **Draft Data**: Database-backed draft data (players, teams, draft picks).
+* **Draft Data**: Database-backed draft data (players, teams, draft picks), including a sample 2027 dataset for testing.
 * **Team Needs**: Automatically updates team positional needs during the draft.
 * **Draft Tools**: Undo picks, pause/resume draft, and restart draft.
 * **Trades**: Trade picks with other teams with algorithm-based trade evaluation display.

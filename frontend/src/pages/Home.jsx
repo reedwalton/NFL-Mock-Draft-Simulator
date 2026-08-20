@@ -208,6 +208,9 @@ function Home() {
                                 onBlur={() => setYearDropdownInteracted(true)}
                                 className={yearDropdownInteracted ? "interacted" : ""}
                             >
+                                <option value={2027}>
+                                    2027
+                                </option>
                                 <option value={2026}>
                                     2026
                                 </option>

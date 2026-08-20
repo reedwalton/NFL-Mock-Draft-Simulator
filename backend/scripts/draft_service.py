@@ -22,15 +22,15 @@ def prompt_user_for_draft_settings() -> list[int, str, int]:
     if draft_name == "":
         draft_name = "Mock Draft"
 
-    # Propmt user for eligible draft year
-    years = [2025]
+    # Prompt user for eligible draft year
+    years = [2025, 2026, 2027]
     while True:
         try:
             year = int(input("Enter year: "))
             if year in years:
                 break
             else:
-                print("Please enter an eligible year: ")
+                print(f"Please enter an eligible year: {years}")
         except ValueError:
             print("Invalid input. Please enter a number.")
     
@@ -78,7 +78,7 @@ def prompt_user_for_teams(mock_draft_id: int) -> list[dict, list[int]]:
     # Display teams and prompt user for team selection
     print("Select teams to control:")
     for team in teams:
-        print(f"{team["id"]}: {team["name"]}")
+        print(f"{team['id']}: {team['name']}")
     
     # Prompt user for team IDs
     while True:
@@ -142,7 +142,7 @@ def prompt_user_for_player(players: list[dict], team: str):
     # Display the 10 best players available
     print("\nBEST PLAYERS AVAILABLE\n----------------------")
     for player in players[:10]:
-        print(f"{player["rank"]}. {player["name"]}, {player["position"]}, {player["college"]}")
+        print(f"{player['rank']}. {player['name']}, {player['position']}, {player['college']}")
 
     # Prompt user for player name
     while True:
@@ -196,7 +196,7 @@ def run_mock_draft_simulation(mock_draft_id: int, year: int):
             print("Failed to make draft pick: ", response.text)
 
         # Print the pick details
-        print(f"With the No. {pick["draft_pick"]["pick_number"]} pick in the 2025 NFL Draft, the {pick["team"]["name"]} select {pick["player"]["name"]}.")
+        print(f"With the No. {pick['draft_pick']['pick_number']} pick in the {year} NFL Draft, the {pick['team']['name']} select {pick['player']['name']}.")
 
         # Remove the selected player from the available players list
         players.remove(selected_player)

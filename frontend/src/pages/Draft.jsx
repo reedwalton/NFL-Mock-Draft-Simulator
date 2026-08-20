@@ -544,7 +544,8 @@ function Draft() {
     // Evaluate trade based on selected picks and trade value chart
     const evaluateTrade = (team1Picks, team2Picks, tradeValueChart) => {
         // Calculate total trade value for each team's picks
-        const sumValues = picks => picks.reduce((sum, pick) => sum + (tradeValueChart[draft.year]?.[pick.draft_pick.pick_number] || 0), 0);
+        const yearChart = tradeValueChart[draft.year] || tradeValueChart[2025];
+        const sumValues = picks => picks.reduce((sum, pick) => sum + (yearChart?.[pick.draft_pick.pick_number] || 0), 0);
         const team1Total = sumValues(team1Picks);
         const team2Total = sumValues(team2Picks);
 
